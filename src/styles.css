@@ -1,0 +1,17 @@
+
+.navbar{
+    background-color: #3b4a54;
+}
+
+#icono{
+    height: 2em;
+    width: 2.2em;
+}
+
+.nav-item{
+    color: whitesmoke 
+}
+
+.nav-item.nav-link.active{
+    color: #198754
+}
