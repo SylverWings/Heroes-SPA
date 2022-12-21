@@ -23,7 +23,7 @@ export const Navbar = () => {
                     className="navbar-brand" 
                     to="/"
                     ><strong>
-                    <img id='icono' src="../../../assets/Icons/icon.jpg" alt="Icon" />
+                    <img id='icono' src="../../../public/Icons/icon.jpg" alt="Icon" />
                 </strong>
                 </Link>
             <div className="navbar-collapse">
