@@ -1,17 +1,27 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom"
+import { useForm } from "../../hooks/useForm";
 import { AuthContext } from "../context/AuthContext";
 
 export const LoginPage = () => {
 
     const {login} = useContext(AuthContext);
     const navigate = useNavigate();
+    const {loginText, onInputChange} = useForm()
+
+    const onLogicSubmit = (event) =>{
+        
+        event.preventDefault();
+        if( loginText.trim().length <= 1 ) return;
+    }
+
 
     const onLogin = () =>{
 
-        login('Anonymous User')
+        const lastPath = localStorage.getItem('lastPath') || '/'
+        login(loginText)
         
-        navigate('/', {
+        navigate(lastPath, {
             replace: true
         })
     }
@@ -23,9 +33,20 @@ export const LoginPage = () => {
                     <hr />
                 </div>
                 <div className="container m-3 d-flex justify-content-center">
-                    <button className="btn btn-success" onClick={ onLogin }>
-                        Login
-                    </button>
+                    <form onSubmit={ onLogicSubmit } className="row d-flex justify-content-center">
+                        <input 
+                            type="text" 
+                            placeholder="Your Name"
+                            className="form-control mb-3"
+                            name="loginText"
+                            autoComplete="off"
+                            value={loginText}
+                            onChange={onInputChange}
+                        />     
+                        <button className="btn btn-success" onClick={ onLogin }>
+                            Login
+                        </button>
+                    </form>
                 </div>
             </div>
         </>
