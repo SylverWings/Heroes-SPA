@@ -6,7 +6,8 @@ import { AuthContext } from '../../auth/context/AuthContext';
 export const Navbar = () => {
 
     const navigate = useNavigate();
-    const { user, logout } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext);
+    const urlIcon = '/Icons/icon.jpg'
 
     const onLogOut = () => {
 
@@ -23,7 +24,7 @@ export const Navbar = () => {
                     className="navbar-brand" 
                     to="/"
                     ><strong>
-                    <img id='icono' src="../../../public/Icons/icon.jpg" alt="Icon" />
+                    <img id='icono' src={urlIcon} alt="Icon" />
                 </strong>
                 </Link>
             <div className="navbar-collapse">
